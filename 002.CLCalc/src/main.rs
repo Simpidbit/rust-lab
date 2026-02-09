@@ -26,19 +26,22 @@ fn get_number_from_stdin() -> Result<i64, std::io::Error> {
 
 fn main() -> Result<(), std::io::Error> {
     println!("Please make a choice:");
-    println!("1. Plus");
-    println!("2. Multiple");
+    println!("\t1. Addition");
+    println!("\t2. Subtraction");
+    println!("\t3. Multiplication");
+    println!("\t4. Division");
 
     let choice: i64 = get_number_from_stdin()?;
     let x: i64 = get_number_from_stdin()?;
     let y: i64 = get_number_from_stdin()?;
 
-    let mut result: i64 = 0;
-    if choice == 1 {
-        result = x + y;
-    }
-    else if choice == 2 {
-        result = x * y;
+    let result: i64;
+    match choice {
+        1 => result = x + y,
+        2 => result = x - y,
+        3 => result = x * y,
+        4 => result = x / y,
+        _ => result = 114514
     }
 
     println!("Result is {}", result);
