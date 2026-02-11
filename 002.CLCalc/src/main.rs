@@ -7,7 +7,7 @@ fn get_number_from_stdin() -> Result<i64, std::io::Error> {
         io::stdout().flush()?;
         io::stdin().read_line(&mut s)?;
         match s.trim().parse::<i64>() {
-            Ok(res) => return Ok(res),
+            Ok(res) => break Ok(res),
             Err(_) => {
                 println!("Failed to parse {} to i64.", s.trim());
                 println!("Please try again.");
